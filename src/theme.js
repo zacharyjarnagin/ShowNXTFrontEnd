@@ -11,7 +11,7 @@ const COLORS = {
   TRANSPARENT: 'transparent',
   INPUT: '#808080',
   PLACEHOLDER: '#9FA5AA',
-  NAVBAR: '#F9F9F9',
+  NAVBAR: '#212121',
   BLOCK: '#808080',
   MUTED: '#9FA5AA',
   NEUTRAL: 'rgba(255,255,255, 0.65)',

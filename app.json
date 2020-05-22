@@ -1,8 +1,8 @@
 {
   "expo": {
-    "name": "galio-native-kit",
-    "description": "Build amazing apps in one codebase. //wip from sdk30 to sdk33",
-    "slug": "galio-native-kit",
+    "name": "ShowNxt",
+    "description": "Passion becomes opportunity.",
+    "slug": "ShowNxtApp",
     "privacy": "public",
     "sdkVersion": "35.0.0",
     "platforms": [
@@ -24,7 +24,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "bundleIdentifier": "com.showNxt.showNxt",
+      "buildNumber": "1.0.2"
     },
     "githubUrl": "https://github.com/galio-org/galio"
   }

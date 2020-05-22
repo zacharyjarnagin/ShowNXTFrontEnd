@@ -74,7 +74,7 @@ export default class Cards extends React.Component {
           title="Cards"
           left={(
             <TouchableOpacity onPress={() => navigation.openDrawer()}>
-              <Icon 
+              <Icon
                 name="menu"
                 family="feather"
                 size={theme.SIZES.BASE}
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: theme.COLORS.WHITE,
-    width: width - theme.SIZES.BASE * 2,
+    width,
     marginVertical: theme.SIZES.BASE * 0.875,
     elevation: theme.SIZES.BASE / 2,
   },

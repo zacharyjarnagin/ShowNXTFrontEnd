@@ -32,7 +32,7 @@ export default class Components extends React.Component {
           )}
           left={(
             <TouchableOpacity onPress={() => navigation.openDrawer()}>
-              <Icon 
+              <Icon
                 name="menu"
                 family="feather"
                 size={theme.SIZES.BASE}
@@ -40,7 +40,7 @@ export default class Components extends React.Component {
               />
             </TouchableOpacity>
           )}
-          style={Platform.OS === 'android' ? { marginTop: theme.SIZES.BASE } : null}
+          style={{ marginTop: theme.SIZES.BASE, backgroundColor: theme.COLORS.GREY}}
         />
 
         <ScrollView style={{ flex: 1 }} showsVerticalScrollIndicator={false}>
@@ -129,7 +129,7 @@ export default class Components extends React.Component {
                   borderless
                   placeholder="borderless"
                   placeholderTextColor={theme.COLORS.WHITE}
-                  color={theme.COLORS.WHITE}
+                  color={theme.COLORS.GREY}
                   bgColor={theme.COLORS.THEME}
                 />
               </Block>
@@ -306,7 +306,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 14,
     justifyContent: 'flex-start',
-    backgroundColor: theme.COLORS.WHITE,
+    backgroundColor: theme.COLORS.GREY,
   },
   button: {
     marginBottom: 20,

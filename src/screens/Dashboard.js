@@ -2,7 +2,7 @@ import React from 'react';
 import {
   StyleSheet, ScrollView, Platform,
 } from 'react-native';
-import { LinearGradient as Gradient } from 'expo';
+import { LinearGradient as Gradient } from 'expo-linear-gradient';
 import { Defs, LinearGradient, Stop } from 'react-native-svg';
 import { AreaChart } from 'react-native-svg-charts';
 import * as shape from 'd3-shape';
@@ -67,7 +67,7 @@ class Dashboard extends React.Component {
       )}
       style={Platform.OS === 'android' ? { marginTop: theme.SIZES.BASE } : null}
     />
-  )
+  );
 
   renderStats = () => {
     const GradientStats = () => (
@@ -115,7 +115,7 @@ class Dashboard extends React.Component {
         </Block>
       </Block>
     );
-  }
+  };
 
   renderCard = (props, index) => {
     const gradientColors = index % 2 ? GRADIENT_BLUE : GRADIENT_PINK;
@@ -145,9 +145,9 @@ class Dashboard extends React.Component {
         </Button>
       </Block>
     );
-  }
+  };
 
-  renderCards = () => cards.map((card, index) => this.renderCard(card, index))
+  renderCards = () => cards.map((card, index) => this.renderCard(card, index));
 
   render() {
     return (
@@ -163,7 +163,7 @@ class Dashboard extends React.Component {
           {this.renderCards()}
         </ScrollView>
       </Block>
-    );
+    )
   }
 }
 
