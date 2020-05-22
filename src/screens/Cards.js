@@ -14,54 +14,15 @@ const { width } = Dimensions.get('screen');
 
 const cards = [
   {
-    id: 1,
-    image: 'https://images.unsplash.com/photo-1494252713559-f26b4bf0b174?w=840&q=300',
-    avatar: 'http://i.pravatar.cc/100',
-    title: 'Christopher Moon',
-    caption: '138 minutes ago',
-    location: 'Los Angeles, CA',
-  },
-  {
-    id: 2,
-    image: 'https://images.unsplash.com/photo-1503631285924-e1544dce8b28?&w=1200&h=1600&fit=crop&crop=entropy&q=300',
-    avatar: 'http://i.pravatar.cc/100',
-    title: 'Christopher Moon',
-    caption: '138 minutes ago',
-    location: 'Los Angeles, CA',
-  },
-  {
-    id: 3,
-    image: 'https://images.unsplash.com/photo-1497802176320-541c8e8de98d?&w=1600&h=900&fit=crop&crop=entropy&q=300',
-    avatar: 'http://i.pravatar.cc/100',
-    title: 'Christopher Moon',
-    caption: '138 minutes ago',
-    location: 'Los Angeles, CA',
-    padded: true,
-  },
-  {
-    id: 4,
-    image: 'https://images.unsplash.com/photo-1490049350474-498de43bc885?&w=1600&h=900&fit=crop&crop=entropy&q=300',
-    avatar: 'http://i.pravatar.cc/100',
-    title: 'Christopher Moon',
-    caption: '138 minutes ago',
-    location: 'Los Angeles, CA',
-    padded: true,
-  },
-  {
-    id: 5,
-    image: 'https://images.unsplash.com/photo-1493612216891-65cbf3b5c420?&w=1500&h=900&fit=crop&crop=entropy&q=300',
-    avatar: 'http://i.pravatar.cc/100',
-    title: 'Christopher Moon',
-    caption: '138 minutes ago',
-    full: true,
-  },
-  {
-    id: 6,
-    image: 'https://images.unsplash.com/photo-1506321806993-0e39f809ae59?&w=1500&h=1900&fit=crop&crop=entropy&q=300',
-    avatar: 'http://i.pravatar.cc/100',
-    title: 'Christopher Moon',
-    caption: '138 minutes ago',
-    full: true,
+    videoId: "PyHiBtrsb8GN5rfwzeg2",
+    title: "Tile 2",
+    description: "Descubre 2!",
+    user: "user",
+    time: "2020-05-20T01:41:18.842Z",
+    video: "https://firebasestorage.googleapis.com/v0/b/shownxt.appspot.com/o/kaeok1a0jfc69hcl87.mp4?alt=media",
+    likeCount: 1,
+    commentCount: 0,
+    userImage: "https://firebasestorage.googleapis.com/v0/b/shownxt.appspot.com/o/kaa5wz6vc6bp7mgidzg.png?alt=media"
   },
 ];
 
@@ -95,10 +56,10 @@ export default class Cards extends React.Component {
                 titleColor={card.full ? theme.COLORS.WHITE : null}
                 style={styles.card}
                 title={card.title}
-                caption={card.caption}
+                caption={card.description}
                 location={card.location}
-                avatar={`${card.avatar}?${id}`}
-                image={card.image}
+                avatar={`${card.userImage}?${id}`}
+                video={card.video}
                 imageStyle={[card.padded ? styles.rounded : null]}
                 imageBlockStyle={[
                   card.padded ? { padding: theme.SIZES.BASE / 2 } : null,
