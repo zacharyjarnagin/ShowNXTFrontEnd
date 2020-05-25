@@ -2,7 +2,7 @@ const COLORS = {
   WHITE: '#FFFFFF',
   BLACK: '#000000',
   GREY: '#898989',
-  THEME: '#B23AFC',
+  THEME: '#D60000',
   PRIMARY: '#B23AFC',
   INFO: '#1232FF',
   ERROR: '#FE2472',

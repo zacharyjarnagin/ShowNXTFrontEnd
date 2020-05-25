@@ -1,12 +1,12 @@
 import React from "react";
 import {
-  ScrollView, StyleSheet, Dimensions, Platform, TouchableOpacity
+  ScrollView, StyleSheet, Dimensions, Platform, TouchableOpacity, RefreshControl
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
 // Galio components
 import {
-  Block, NavBar, Icon
+  Block, NavBar, Icon, Card
 } from "galio-framework";
 import theme from "../theme";
 import CustomCard from "../custom-components/CustomCard";
@@ -18,26 +18,40 @@ export default class Cards extends React.Component {
 
   state: {
     cards: [],
+    refreshing: boolean,
   };
 
   constructor(props) {
     super(props);
     this.state = {
       cards: [],
+      refreshing: false
     };
   }
 
   async componentDidMount() {
     let result = [];
     await GetAllVideos()
-      .then((data) => result = data);
-    (this.setState({ cards: result }));
+      .then((data) => {
+        result = data;
+        this.setState({ cards: result });
+      });
+  }
+
+  async onRefresh() {
+    this.setState({ refreshing: true });
+    let result = [];
+    await GetAllVideos.then((data) => {
+      result = data;
+      this.setState({ cards: result });
+      this.setState({ refreshing: false });
+    });
   }
 
   render() {
     const { navigation } = this.props;
     return (
-      <Block safe flex style={{ backgroundColor: theme.COLORS.WHITE }}>
+      <Block safe flex style={{ backgroundColor: theme.COLORS.GREY }}>
         <NavBar
           title="Cards"
           left={(
@@ -50,38 +64,29 @@ export default class Cards extends React.Component {
               />
             </TouchableOpacity>
           )}
-          style={Platform.OS === "android" ? { marginTop: theme.SIZES.BASE } : null}
+          style={{ marginTop: theme.SIZES.BASE, backgroundColor: theme.COLORS.GREY}}
+
         />
-        <ScrollView contentContainerStyle={styles.cards}>
+        <ScrollView
+                    contentContainerStyle={styles.cards}>
           <Block flex space="between">
             {this.state.cards && this.state.cards.map((card, id) => (
               <CustomCard
                 key={`card-${card.videoId}`}
                 flex
                 borderless
-                shadowColor={theme.COLORS.BLACK}
-                // titleColor={card.full ? theme.COLORS.WHITE : null}
-                titleColor={theme.COLORS.WHITE}
+                // shadowColor={theme.COLORS.BLACK}
+                titleColor={theme.COLORS.BLACK}
                 style={styles.card}
                 title={card.title}
                 caption={card.description}
-                // location={card.location}
-                avatar={`${card.userImage}?${id}`}
+                avatar={card.userImage}
                 video={card.video}
-                // imageStyle={[card.padded ? styles.rounded : null]}
-                imageStyle={styles.rounded}
-                imageBlockStyle={[
-                  // card.padded ? { padding: theme.SIZES.BASE / 2 } : null,
-                  { padding: theme.SIZES.BASE / 2 },
-                  // card.full ? null : styles.noRadius,
-                  null
-                ]}
-                // footerStyle={card.full ? styles.full : null}
-                footerStyle={styles.full}
+                imageBlockStyle={styles.cardNoRadius}
+                user={card.user}
+                time={card.time}
+                theme={theme}
               >
-                {/*{card.full ? <LinearGradient colors={['transparent', 'rgba(0,0,0, 0.8)']} style={styles.gradient} /> : null}*/}
-                <LinearGradient colors={["transparent", "rgba(0,0,0, 0.8)"]}
-                                style={styles.gradient}/>
               </CustomCard>
             ))}
           </Block>
@@ -94,12 +99,12 @@ export default class Cards extends React.Component {
 const styles = StyleSheet.create({
   cards: {
     width,
-    backgroundColor: theme.COLORS.WHITE,
+    backgroundColor: theme.COLORS.GREY,
     alignItems: "center",
     justifyContent: "flex-start"
   },
   card: {
-    backgroundColor: theme.COLORS.WHITE,
+    backgroundColor: theme.COLORS.GREY,
     width,
     marginVertical: theme.SIZES.BASE * 0.875,
     elevation: theme.SIZES.BASE / 2
