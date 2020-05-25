@@ -156,7 +156,7 @@ const styles = theme =>
   StyleSheet.create({
     card: {
       borderWidth: 0,
-      backgroundColor: theme.COLORS.WHITE,
+      backgroundColor: theme.COLORS.GREY,
       width: theme.SIZES.CARD_WIDTH,
       marginVertical: theme.SIZES.CARD_MARGIN_VERTICAL
     },
@@ -165,7 +165,7 @@ const styles = theme =>
       alignItems: "center",
       paddingHorizontal: theme.SIZES.CARD_FOOTER_HORIZONTAL,
       paddingVertical: theme.SIZES.CARD_FOOTER_VERTICAL,
-      backgroundColor: theme.COLORS.TRANSPARENT,
+      backgroundColor: theme.COLORS.GREY,
       zIndex: 1
     },
     caption: {
@@ -173,14 +173,14 @@ const styles = theme =>
       alignItems: "center",
       paddingHorizontal: theme.SIZES.CARD_FOOTER_HORIZONTAL,
       paddingVertical: theme.SIZES.CARD_FOOTER_VERTICAL,
-      backgroundColor: theme.COLORS.TRANSPARENT,
+      backgroundColor: theme.COLORS.GREY,
       zIndex: 1
     },
     videoTitle: {
       justifyContent: "flex-start",
       alignItems: "center",
       paddingHorizontal: theme.SIZES.CARD_FOOTER_HORIZONTAL,
-      backgroundColor: theme.COLORS.TRANSPARENT,
+      backgroundColor: theme.COLORS.GREY,
       zIndex: 1
     },
     avatar: {
@@ -197,8 +197,7 @@ const styles = theme =>
     },
     image: {
       width: "auto",
-      height: theme.SIZES.CARD_IMAGE_HEIGHT * 2,
-      marginTop: -theme.SIZES.CARD_MARGIN_VERTICAL * 7
+      height: theme.SIZES.BASE * 30,
     },
     round: {
       borderRadius: theme.SIZES.CARD_ROUND

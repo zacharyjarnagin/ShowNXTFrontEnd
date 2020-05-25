@@ -35,10 +35,9 @@ class CustomVideo extends Component {
 
   render() {
     const { width } = Dimensions.get('screen');
-    this.state.isPlaying ? console.log("Is playing") : null;
     return (
         <InViewPort onChange={this.handlePlaying}>
-          <View style={{ alignSelf: 'center', height: theme.SIZES.BASE * 30}}>
+          <View style={{ alignSelf: 'center'}}>
           <VideoPlayer
             videoProps={{
               shouldPlay: this.state.isPlaying,
