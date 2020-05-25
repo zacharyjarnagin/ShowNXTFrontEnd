@@ -2,14 +2,14 @@
 import React from 'react';
 import { Image, StyleSheet } from 'react-native';
 import PropTypes from 'prop-types';
-import CustomVideo from './CustomVideo';
+import CustomVideo from '../custom-components/CustomVideo';
 
 
-import { Block, Icon, Text } from './';
+import { Block, Icon, Text } from 'galio-framework';
 import { withGalio } from 'galio-framework';
 import GalioTheme from 'galio-framework/src/theme';
 
-function Card({
+function CustomCard({
   avatar,
   borderless,
   caption,
@@ -20,8 +20,6 @@ function Card({
   video,
   imageBlockStyle,
   imageStyle,
-  location,
-  locationColor,
   shadow,
   style,
   styles,
@@ -34,7 +32,7 @@ function Card({
     if (!video) return null;
     return (
       <Block card style={[styles.imageBlock, imageBlockStyle]}>
-        <CustomVideo source={video}/>
+        <CustomVideo source={video} />
       </Block>
     );
   }
@@ -44,30 +42,6 @@ function Card({
     return <Image source={{ uri: avatar }} style={styles.avatar} />;
   }
 
-  function renderLocation() {
-    if (!location) return null;
-    if (typeof location !== 'string') {
-      return location;
-    }
-
-    return (
-      <Block row right>
-        <Icon
-          name="map-pin"
-          family="feather"
-          color={locationColor || theme.COLORS.MUTED}
-          size={theme.SIZES.FONT}
-        />
-        <Text
-          muted
-          size={theme.SIZES.FONT * 0.875}
-          color={locationColor || theme.COLORS.MUTED}
-          style={{ marginLeft: theme.SIZES.BASE * 0.25 }}>
-          {location}
-        </Text>
-      </Block>
-    );
-  }
 
   function renderAuthor() {
     return (
@@ -85,7 +59,6 @@ function Card({
                 {caption}
               </Text>
             </Block>
-            {renderLocation()}
           </Block>
         </Block>
       </Block>
@@ -104,7 +77,7 @@ function Card({
   );
 }
 
-Card.defaultProps = {
+CustomCard.defaultProps = {
   card: true,
   shadow: true,
   borderless: false,
@@ -118,7 +91,7 @@ Card.defaultProps = {
   avatar: '',
 };
 
-Card.propTypes = {
+CustomCard.propTypes = {
   card: PropTypes.bool,
   shadow: PropTypes.bool,
   borderless: PropTypes.bool,
@@ -172,4 +145,4 @@ const styles = theme =>
     },
   });
 
-export default withGalio(Card, styles);
+export default withGalio(CustomCard, styles);

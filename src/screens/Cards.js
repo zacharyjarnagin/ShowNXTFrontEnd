@@ -6,9 +6,10 @@ import { LinearGradient } from 'expo-linear-gradient';
 
 // Galio components
 import {
-  Card, Block, NavBar, Icon
+  Block, NavBar, Icon
 } from 'galio-framework';
 import theme from '../theme';
+import CustomCard from "../custom-components/CustomCard";
 
 const { width } = Dimensions.get('screen');
 
@@ -48,27 +49,33 @@ export default class Cards extends React.Component {
         <ScrollView contentContainerStyle={styles.cards}>
           <Block flex space="between">
             {cards && cards.map((card, id) => (
-              <Card
-                key={`card-${card.image}`}
+              <CustomCard
+                key={`card-${card.videoId}`}
                 flex
                 borderless
                 shadowColor={theme.COLORS.BLACK}
-                titleColor={card.full ? theme.COLORS.WHITE : null}
+                // titleColor={card.full ? theme.COLORS.WHITE : null}
+                titleColor={theme.COLORS.WHITE}
                 style={styles.card}
                 title={card.title}
                 caption={card.description}
-                location={card.location}
+                // location={card.location}
                 avatar={`${card.userImage}?${id}`}
                 video={card.video}
-                imageStyle={[card.padded ? styles.rounded : null]}
+                // imageStyle={[card.padded ? styles.rounded : null]}
+                imageStyle={styles.rounded}
                 imageBlockStyle={[
-                  card.padded ? { padding: theme.SIZES.BASE / 2 } : null,
-                  card.full ? null : styles.noRadius,
+                  // card.padded ? { padding: theme.SIZES.BASE / 2 } : null,
+                  { padding: theme.SIZES.BASE / 2 },
+                  // card.full ? null : styles.noRadius,
+                  null,
                 ]}
-                footerStyle={card.full ? styles.full : null}
+                // footerStyle={card.full ? styles.full : null}
+                footerStyle={styles.full}
               >
-                {card.full ? <LinearGradient colors={['transparent', 'rgba(0,0,0, 0.8)']} style={styles.gradient} /> : null}
-              </Card>
+                {/*{card.full ? <LinearGradient colors={['transparent', 'rgba(0,0,0, 0.8)']} style={styles.gradient} /> : null}*/}
+                <LinearGradient colors={['transparent', 'rgba(0,0,0, 0.8)']} style={styles.gradient} />
+              </CustomCard>
             ))}
           </Block>
         </ScrollView>
