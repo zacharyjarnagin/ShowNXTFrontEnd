@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Alert, Dimensions, KeyboardAvoidingView, StyleSheet, Platform
+  Alert, Dimensions, KeyboardAvoidingView, StyleSheet, Platform, Image
 } from "react-native";
 import Login from "../api-functions/Login";
 
@@ -41,10 +41,7 @@ class LoginScreen extends React.Component {
             marginTop: theme.SIZES.BASE * 1.875,
             marginBottom: height * 0.1
           }}>
-            <Text muted center size={theme.SIZES.FONT * 0.875}
-                  style={{ paddingHorizontal: theme.SIZES.BASE * 2.3 }}>
-              blah blah blah blah
-            </Text>
+            <Image source={require('../../assets/icon.png')} size={theme.SIZES.FONT * 0.875}/>
           </Block>
 
           <Block flex={4} center space="evenly">
@@ -80,6 +77,7 @@ class LoginScreen extends React.Component {
               <Text
                 color={theme.COLORS.ERROR}
                 size={theme.SIZES.FONT * 0.75}
+                // TODO: password reset
                 onPress={() => Alert.alert("Not implemented")}
                 style={{
                   alignSelf: "flex-end",
@@ -103,6 +101,7 @@ class LoginScreen extends React.Component {
                         if(response.error === `auth/invalid-email`) this.handleChange("emailError", "Email not valid");
                       }
                       if (response.hasOwnProperty("general")) this.handleChange("generalError", "Invalid Credentials");
+                      // TODO : this is where we navigate
                       if (response.hasOwnProperty("token")) console.log(response.token);
                     });
                 }
