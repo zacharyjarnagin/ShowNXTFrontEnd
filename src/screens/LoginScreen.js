@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Alert, Dimensions, KeyboardAvoidingView, StyleSheet, Platform,
 } from 'react-native';
+import Login from "../api-functions/Login";
 
 // galio component
 import {
@@ -11,7 +12,7 @@ import theme from '../theme';
 
 const { height, width } = Dimensions.get('window');
 
-class Login extends React.Component {
+class LoginScreen extends React.Component {
   state = {
     email: '-',
     password: '-',
@@ -118,11 +119,9 @@ class Login extends React.Component {
               <Button
                 round
                 color="error"
-                onPress={() => Alert.alert(
-                  'Sign in action',
-                  `Email: ${email}
-Password: ${password}`,
-                )}
+                onPress={() =>
+                  Login(email, password)
+                }
               >
                 Sign in
               </Button>
@@ -156,4 +155,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Login;
+export default LoginScreen;

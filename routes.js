@@ -14,7 +14,7 @@ import Article from './src/screens/Article';
 import ArticleCover from './src/screens/ArticleCover';
 import Cards from './src/screens/Cards';
 import Components from './src/screens/Components';
-import Login from './src/screens/Login';
+import LoginScreen from './src/screens/LoginScreen';
 import News from './src/screens/News';
 import OrderConfirmed from './src/screens/OrderConfirmed';
 import Presentation from './src/screens/Presentation';
@@ -141,9 +141,9 @@ const screens = {
     },
   },
   Login: {
-    screen: Login,
+    screen: LoginScreen,
     navigationOptions: {
-      drawerLabel: 'Login Screen',
+      drawerLabel: 'LoginScreen Screen',
       drawerIcon: props => <MenuIcon name="flag" family="font-awesome" focused={props.focused} />,
     },
   },
