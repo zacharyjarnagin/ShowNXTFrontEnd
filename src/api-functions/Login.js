@@ -13,6 +13,7 @@ export default async function Login(email, password) {
     .then((response) => response.json())
     .then((json) => {
       console.log(JSON.stringify(json));
+      return json;
     })
     .catch((error) => console.error(error));
 }
