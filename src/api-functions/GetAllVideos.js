@@ -1,8 +1,5 @@
-export default function GetAllVideosFunc(setAnswer) {
-  async function getVideos() {
-    let userRequests = [];
-    console.log("in func");
-    await fetch('https://us-central1-shownxt.cloudfunctions.net/api/Videos', {
+export default async function GetAllVideosFunc() {
+    return await fetch('https://us-central1-shownxt.cloudfunctions.net/api/Videos', {
       method: 'GET',
     })
       .then((response) => response.json())
@@ -11,9 +8,10 @@ export default function GetAllVideosFunc(setAnswer) {
         json.forEach((video) => {
           answer.push(video);
         });
-        setAnswer(answer);
+        return answer
       })
-      .catch((error) => console.error(error));
-  }
-  getVideos();
+      .catch((error) => {
+        console.error(error);
+      return [];
+      });
 }
